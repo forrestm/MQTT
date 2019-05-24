@@ -1,0 +1,12 @@
+.tooltipster-noir {
+	border-radius: 10px;
+	border: 3px solid #03b000;
+	background: #fff;
+	color: #135ae4;
+}
+.tooltipster-noir .tooltipster-content {
+	font-family: 'Raleway', serif;
+	font-size: 14px;
+	line-height: 16px;
+	padding: 8px 10px;
+}

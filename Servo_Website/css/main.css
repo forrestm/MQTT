@@ -1,0 +1,81 @@
+body {
+  -webkit-user-select: none;
+  cursor: default;
+  /*font: 18px "Helvetica Neue";*/
+  color: rgba(0, 0, 0, 0.77);
+  font-weight: 200;
+  padding-left: 30px;
+  padding-top: 0px;
+  background: -webkit-linear-gradient(top, #f2fbff 0%, #ffffff 64%) no-repeat;
+  background: -moz-linear-gradient(top, #f2fbff 0%, #ffffff 64%) no-repeat;
+  background: -ms-linear-gradient(top, #f2fbff 0%, #ffffff 64%) no-repeat;
+  background: linear-gradient(to bottom, #f2fbff 0%, #ffffff 64%) no-repeat;
+}
+h1 {
+  font-weight: 100;
+  margin-top: auto;
+  font-size: 40px;
+  color: #135ae4;
+  text-align: center;
+}
+h2 {
+  font-weight: 200;
+  font-size: 22px;
+  color: #03b000;
+}
+h3 {
+  font-weight: 200;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.77);
+  /* margin-top: 0px; */
+}
+a:link {
+  text-decoration: none;
+  color: #f06;
+}
+a:visited {
+  text-decoration: none;
+  color: #f06;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:active {
+  text-decoration: underline;
+}
+
+/*.no-number .ui-slider-input
+ Used to remove the number next to the slider.
+
+{
+  display: none;
+  width: 0px;
+}*/
+
+input.ui-slider-input {
+   /*Used to remove the number next to the slider.*/
+  display: none;
+  width: 0px;
+}
+
+.ui-slider-track {
+  /*Used to get rid of the space created by removing the slider number*/
+  margin: 0 15px 0 15px !important
+}
+.ui-btn-corner-all {
+   border-radius: 6m;
+}
+.button-control {
+  text-align: center;
+  width: 150px !important;
+}
+.ui-content {
+  margin: 0 auto;
+}
+.dpad {
+  text-align: center;
+  border-radius: 15px;
+}
+.ui-block-b {
+  text-align: center;
+}

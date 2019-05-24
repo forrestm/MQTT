@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script type="text/javascript" src="js/vendor/jquery.tooltipster.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+  <script type="text/javascript" src="http://www.hivemq.com/demos/websocket-client/js/mqttws31.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/JoyStick.js"></script>
+  <script src="js/jsmpg.js"></script>
+
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+  <link rel="stylesheet" type="text/css" href="css/tooltipster.css" />
+  <link rel="stylesheet" type="text/css" href="css/tooltipster-noir.css" />
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
+
+  <link href='http://fonts.googleapis.com/css?family=Fugaz+One' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
+
+  <!-- this script is for the animated tooltips on the buttons -->
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.tooltip').tooltipster({
+        theme: 'tooltipster-noir',
+        animation: 'fall'
+      });
+    });
+  </script>
+</head>
+
+<title>
+
+  C.R.A.W.Lab MQTT Servo Control
+
+</title>
+
+<body>
+  <h1 id="fittext">
+    <span style="font-family: 'Fugaz One', cursive;">
+
+      C.R.A.W.LAB
+
+    </span>
+
+    <p style="margin:0px; font-family: 'Raleway', sans-serif;">
+
+      MQTT Servo Control
+
+    </p>
+  </h1>
+
+  <!-- <div data-role="main" class="ui-content">
+
+    <h2 style="text-align:center">Click to begin control:</h2>
+
+  </div> -->
+
+  <div class="dpad">
+    <button type="submit" data-inline="true" class="button-control" style="max-width:40%" onclick="toggle_sending()" id="control">
+      <div class="tooltip" title="Pressing this button will activate the webcam and the sliders!">
+
+        Start
+
+      </div>
+    </button>
+    <button type="submit" data-inline="true" class="button-control" style="max-width:40%" onclick="toggle_sending2()" id="control2">
+      <div class="tooltip" title="Pressing this button will activate CV tracking, then email you the results!">
+
+        OpenCV On
+
+      </div>
+    </button>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <div class="ui-grid-a ui-responsive">
+      <div class="ui-block-a">
+        <h2 style="text-align:center">
+
+          Small Servo
+
+        </h2>
+        <!-- <div class="no-number" data-role="rangeslider"> -->
+          <input type="range" name="small" id="small" value="0" min="-60" max="60" data-show-value="true" data-popup-enabled="true">
+        <!-- </div> -->
+        <h2 style="text-align:center">
+
+          Large Servo
+
+        </h2>
+        <!-- <div class="no-number" data-role="rangeslider"> -->
+          <input type="range" name="big" id="big" value="0" min="-30" max="30" data-show-value="true" data-popup-enabled="true">
+        <!-- </div> -->
+      </div>
+      <div class="ui-block-b">
+
+        <canvas  id="videoCanvas" width="320" height="240" text-align="center">
+          <p>
+            Please use a browser that supports the canvas element, like
+            <a href="http://www.google.com/chrome">Chrome</a>
+            <a href="http://www.mozilla.com/firefox/">Firefox</a>
+            <a href="http://www.apple.com/safari/">Safari</a> or Internet Explorer 10
+          </p>
+        </canvas>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- This script allows the title to change size dynamically  -->
+  <script src="js/fittext.js"></script>
+  <script type="text/javascript">
+    fitText(document.getElementById('fittext'), 1.2)
+  </script>
+
+  <!-- This script enables the video -->
+  <script type="text/javascript">
+    // Setup the WebSocket connection ans start the player
+    var client = new WebSocket( 'ws://10.50.61.244:8084/' );
+
+    var canvas = document.getElementById('videoCanvas');
+    var player = new jsmpeg(client, {canvas:canvas});
+  </script>
+
+</body>
+
+</html>
